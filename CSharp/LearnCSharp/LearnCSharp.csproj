@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>HashSets.Program</StartupObject>
+    <StartupObject>IArrays.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -73,8 +73,21 @@
     <Compile Include="BinarySerialization.cs" />
     <Compile Include="Collections\BlockingCollection.cs" />
     <Compile Include="CancellationTokens.cs" />
+    <Compile Include="Collections\ConcurrentCollections\C-Bag.cs" />
+    <Compile Include="Collections\ConcurrentCollections\C-Dictionary.cs" />
+    <Compile Include="Collections\ConcurrentCollections\C-Queue.cs" />
+    <Compile Include="Collections\ConcurrentCollections\C-Stack.cs" />
     <Compile Include="Collections\HashSets.cs" />
+    <Compile Include="Collections\ImmutableCollections\IArrays.cs" />
+    <Compile Include="Collections\ImmutableCollections\IDicionary.cs" />
+    <Compile Include="Collections\ImmutableCollections\IHashSet.cs" />
+    <Compile Include="Collections\ImmutableCollections\IList.cs" />
+    <Compile Include="Collections\ImmutableCollections\IQueue.cs" />
+    <Compile Include="Collections\ImmutableCollections\ISortedDictionary.cs" />
+    <Compile Include="Collections\ImmutableCollections\ISortedSet.cs" />
+    <Compile Include="Collections\ImmutableCollections\IStack.cs" />
     <Compile Include="Collections\LinkedLists.cs" />
+    <Compile Include="Collections\ObservableCollections.cs" />
     <Compile Include="Collections\SortedDictionaries.cs" />
     <Compile Include="Collections\SortedLists.cs" />
     <Compile Include="Collections\SortedSets.cs" />
@@ -91,7 +104,7 @@
     <Compile Include="EventWaitHandles.cs" />
     <Compile Include="ExpressionTrees.cs" />
     <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="Files.cs" />
+    <Compile Include="Files\Files.cs" />
     <Compile Include="FuncDelegates.cs" />
     <Compile Include="ImmutableCollections.cs" />
     <Compile Include="Indexer.cs" />
