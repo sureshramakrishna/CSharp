@@ -47,22 +47,26 @@ namespace Files
         }
         static void FileOperation()
         {
-            File.AppendAllLines(filePath, new List<string> { "Hello", "World" });    //Creates a file if it does not exist, but it doesn't create folder and throws error if folder doesn't exist.
-            File.AppendAllText(filePath, "Hello World");
+            string filePath = @"D:\Test.txt";
+            File.AppendAllLines(filePath, new List<string> { "Hello" }); //Creates file if doesn't exist, but it doesn't create folder and throws error if folder doesn't exist.
+            File.AppendAllText(filePath, "Hello World"); //Creates file if doesn't exist.
+
             StreamWriter fileStream = File.AppendText(filePath); //returns a stream writer which can be used to append text.
-            File.Copy(sourceFileName: filePath, destFileName: @"D:\Test2.txt", overwrite: true); //Overwrite replaces dest file if exists.
+            File.Copy(sourceFileName: filePath, destFileName: "D:\\Test2.txt", overwrite: true); //Overwrite replaces dest file if exists.
             File.Create(filePath);                                           //Creates or Overwrites the specified file.
-            StreamWriter createText = File.CreateText(filePath);             //Clears existing content of a file if it exists.
-            File.Encrypt(filePath);                                          //Encrypts a file so that only the account used to encrypt the file can decrypt it.
+            StreamWriter createText = File.CreateText(filePath); //Creates or opens a file for writing UTF-8 encoded text.If the file already exists, its contents are overwritten.
+            File.Encrypt(filePath); //Encrypts a file so that only the account used to encrypt the file can decrypt it.
             File.Decrypt(filePath);
             File.Delete(filePath);
             File.Exists(filePath);
             File.Move(sourceFileName: filePath, destFileName: @"D:\Test.txt");            //fails if dest file already exists 
+
             FileStream fs = File.Open(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             byte[] byteData = File.ReadAllBytes(filePath);             //Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
             string[] linesArray = File.ReadAllLines(filePath);
             string lines = File.ReadAllText(filePath);
             IEnumerable<string> lineByLine = File.ReadLines(filePath);             //Reads line by line
+
             File.WriteAllBytes(filePath, new byte[10]);
             File.WriteAllLines(filePath, new string[10]);
             File.WriteAllText(filePath, "");
@@ -70,7 +74,7 @@ namespace Files
         }
         static void Main(string[] args)
         {
-           
+            FileOperation();
         }
     }
 }

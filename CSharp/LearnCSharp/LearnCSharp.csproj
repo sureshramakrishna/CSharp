@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>IArrays.Program</StartupObject>
+    <StartupObject>BufferedStreams.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -104,7 +104,13 @@
     <Compile Include="EventWaitHandles.cs" />
     <Compile Include="ExpressionTrees.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Files\BinaryReaderWriter.cs" />
+    <Compile Include="Files\BufferedStreams.cs" />
+    <Compile Include="Files\Directories.cs" />
     <Compile Include="Files\Files.cs" />
+    <Compile Include="Files\MemoryStreams.cs" />
+    <Compile Include="Files\Paths.cs" />
+    <Compile Include="Files\Streams.cs" />
     <Compile Include="FuncDelegates.cs" />
     <Compile Include="ImmutableCollections.cs" />
     <Compile Include="Indexer.cs" />
