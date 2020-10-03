@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Lists.Program</StartupObject>
+    <StartupObject>HashSets.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -65,14 +65,20 @@
   <ItemGroup>
     <Compile Include="Abstract.cs" />
     <Compile Include="Actions.cs" />
-    <Compile Include="ArrayLists.cs" />
-    <Compile Include="Arrays.cs" />
+    <Compile Include="Collections\ArrayLists.cs" />
+    <Compile Include="Collections\Arrays.cs" />
     <Compile Include="AsyncAwait.cs" />
     <Compile Include="AsynchronousProgrammingModule.cs" />
     <Compile Include="AutoResetEvents.cs" />
     <Compile Include="BinarySerialization.cs" />
-    <Compile Include="BlockingCollection.cs" />
+    <Compile Include="Collections\BlockingCollection.cs" />
     <Compile Include="CancellationTokens.cs" />
+    <Compile Include="Collections\HashSets.cs" />
+    <Compile Include="Collections\LinkedLists.cs" />
+    <Compile Include="Collections\SortedDictionaries.cs" />
+    <Compile Include="Collections\SortedLists.cs" />
+    <Compile Include="Collections\SortedSets.cs" />
+    <Compile Include="Collections\StringDictionaries.cs" />
     <Compile Include="Constructors.cs" />
     <Compile Include="CoVarianca_ContraVariance\Contravariance.cs" />
     <Compile Include="CountDownEvent.cs" />
@@ -91,7 +97,7 @@
     <Compile Include="Indexer.cs" />
     <Compile Include="InterLock.cs" />
     <Compile Include="LinqQueries.cs" />
-    <Compile Include="Lists.cs" />
+    <Compile Include="Collections\Lists.cs" />
     <Compile Include="ManualResetEvents.cs" />
     <Compile Include="Montiors.cs" />
     <Compile Include="Mutex.cs" />
