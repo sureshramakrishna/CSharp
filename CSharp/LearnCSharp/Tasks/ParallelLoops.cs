@@ -27,6 +27,7 @@ namespace ParallelLoops
             //this statement executes at the end of each thread not on each iteration. 
             //Let's say Parallel.For was executed using 2 threads, then these statement gets executed at the end of those 2 threads.
 
+
             Parallel.ForEach(Enumerable.Range(0, 10), (item) => { Console.WriteLine(item); });
 
             total = 0; ;

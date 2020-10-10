@@ -5,8 +5,9 @@ namespace WaitHandles
     public class WaitHandles
     {
         private static readonly EventWaitHandle Ewh = new EventWaitHandle(false, EventResetMode.AutoReset);
-        private static long _threadCount = 0;
         private static readonly EventWaitHandle ClearCount = new EventWaitHandle(false, EventResetMode.AutoReset);
+        private static long _threadCount = 0;
+
         public static void Main()
         {
             for (int i = 0; i <= 4; i++)

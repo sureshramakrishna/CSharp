@@ -14,7 +14,7 @@ namespace Predicates
         }
         static void Main(string[] args)
         {
-            Predicate<int> predicate = IsNegative;
+            Predicate<int> predicate = IsNegative; //notice that there is no need to define a delegate.
             bool result = predicate.Invoke(10);
         }
     }

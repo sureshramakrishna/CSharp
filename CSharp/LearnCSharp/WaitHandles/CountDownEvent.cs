@@ -29,6 +29,7 @@ namespace CountDownEvent
             cde.Wait(); // will return when cde count reaches 0
             await Task.WhenAll(t1, t2); // Proper form is to wait for the tasks to complete, even if you that their work is done already.
             cde.Reset(10); // Resetting will cause the CountdownEvent to un-set, and resets InitialCount/CurrentCount to the specified value
+            WaitHandle.WaitAll(new[] { cde.WaitHandle });
         }
         static void Main()
         {

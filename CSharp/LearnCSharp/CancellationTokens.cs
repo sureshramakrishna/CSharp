@@ -17,6 +17,15 @@ namespace CancellationTokens
             CancellationToken token = source.Token;
             token.Register(() => { CallBackMethod(); }); //Registers a call back method that executes on cancel
 
+            Task.Factory.StartNew(() =>
+            {
+                Console.WriteLine("I will sleep until cancelled!");
+                while (true) ;
+            }, token);
+            Console.WriteLine("Press any key to Cancel.");
+            Console.ReadKey();
+            source.Cancel();
+
             Random rnd = new Random();
 
             TaskFactory factory = new TaskFactory(token);
