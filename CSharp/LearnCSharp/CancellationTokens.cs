@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,50 +17,32 @@ namespace CancellationTokens
         {
             CancellationTokenSource source = new CancellationTokenSource();
             CancellationToken token = source.Token;
-            token.Register(() => { CallBackMethod(); }); //Registers a call back method that executes on cancel
 
-            Task.Factory.StartNew(() =>
-            {
-                Console.WriteLine("I will sleep until cancelled!");
-                while (true) ;
-            }, token);
-            Console.WriteLine("Press any key to Cancel.");
-            Console.ReadKey();
+            CancellationByPolling(token);
+            RegisteringACallBack(token);
             source.Cancel();
 
-            Random rnd = new Random();
-
-            TaskFactory factory = new TaskFactory(token);
-            Task task = factory.StartNew(() => {
-                Thread.Sleep(1000);
-                while (rnd.Next(0, 100) != 0)
-                    source.Cancel();
-            }, token);
-
-            try
+        }
+        static void CancellationByPolling(CancellationToken token)
+        {
+            for (int x = 0; x < int.MaxValue && !token.IsCancellationRequested; x++)
+                Thread.Sleep(100);
+        }
+        static void RegisteringACallBack(CancellationToken token)
+        {
+            WebClient wc = new WebClient();
+            // Cancellation on the token will call CancelAsync on the WebClient.
+            token.Register(() =>
             {
-                Task<int> fTask = factory.ContinueWhenAll(new[] { task },
-                                                             (results) => {
-                                                                 Console.WriteLine("Made it even with Cancelling.");
-                                                                 return 1;
-                                                             }, token);
-                int result = fTask.Result; //throws exception as ftask was cancelled.
-                Console.WriteLine("Completed!");
-            }
-            catch (AggregateException ae)
-            {
-                foreach (Exception e in ae.InnerExceptions)
-                {
-                    if (e is TaskCanceledException)
-                        Console.WriteLine(((TaskCanceledException)e).Message);
-                    else
-                        Console.WriteLine("Exception: " + e.GetType().Name);
-                }
-            }
-            finally
-            {
-                source.Dispose();
-            }
+                wc.CancelAsync();
+                Console.WriteLine("Request cancelled!");
+            });
+            wc.DownloadStringAsync(new Uri("http://www.contoso.com"));
+        }
+        static ManualResetEvent mre = new ManualResetEvent(false);
+        static void CancellationByUsingWaitHandle(CancellationToken token)
+        {
+            WaitHandle.WaitAny(new[] { mre, token.WaitHandle }); //Wait for resource or until cancelled
         }
     }
 }

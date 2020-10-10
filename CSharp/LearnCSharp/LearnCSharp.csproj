@@ -70,6 +70,8 @@
     <Compile Include="AsyncAwait.cs" />
     <Compile Include="AsynchronousProgrammingModule.cs" />
     <Compile Include="Tasks\Parallel_For.cs" />
+    <Compile Include="Tasks\Parallel_ForEach.cs" />
+    <Compile Include="Tasks\Parallel_Invoke.cs" />
     <Compile Include="WaitHandles\AutoResetEvents.cs" />
     <Compile Include="BinarySerialization.cs" />
     <Compile Include="Collections\BlockingCollection.cs" />
@@ -124,7 +126,6 @@
     <Compile Include="Mutex.cs" />
     <Compile Include="NumericFormatSpecifier.cs" />
     <Compile Include="OperatorOverloading.cs" />
-    <Compile Include="Tasks\ParallelLoops.cs" />
     <Compile Include="Params.cs" />
     <Compile Include="PartialClass.cs" />
     <Compile Include="Delegates\Predicates.cs" />
