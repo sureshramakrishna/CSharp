@@ -64,14 +64,14 @@ namespace Timers
         }
 
         private static void SetTimer()
-        { 
+        {
             timer = new System.Timers.Timer(2000);       // Create a timer with a two second interval.
             timer.Elapsed += OnTimedEvent;              // Hook up the Elapsed event for the timer. 
 
             timer.AutoReset = true; //A Boolean indicating whether the Timer should raise the Elapsed event only once (false) or repeatedly (true).
             timer.Enabled = true; //Gets or sets a value indicating whether the Timer should raise the Elapsed event.
-            //time.Start() //Sets timer.Enabled to true.
-            //timer.Stop() //Sets time.Enable to false.
+                                  //time.Start() //Sets timer.Enabled to true.
+                                  //timer.Stop() //Sets time.Enable to false.
         }
 
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)

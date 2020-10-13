@@ -14,7 +14,7 @@ namespace SpinLocks
             Action action = () =>
             {
                 bool gotLock = false;
-                for (int i = 0; i < 10000; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     if(!sl.IsHeldByCurrentThread)
                         sl.Enter(ref gotLock); //acquires the lock

@@ -10,8 +10,9 @@ namespace ThreadCancellation
 {
     class CancelByPolling
     {
-        public static void NestedLoops(CancellationToken token)
+        public static void NestedLoops(object t)
         {
+            var token = (CancellationToken)t;
             for (int x = 0; x < 1000 && !token.IsCancellationRequested; x++)
             {
                 for (int y = 0; y < 500; y++)
@@ -57,27 +58,9 @@ namespace ThreadCancellation
         {
             var cts = new CancellationTokenSource();
             Task.Run(() => DoWork(cts.Token), cts.Token);
-            bool goAgain = true;
-            while (goAgain)
-            {
-                char ch = Console.ReadKey(true).KeyChar;
-                switch (ch)
-                {
-                    case 'c': //cancel
-                        cts.Cancel();
-                        break;
-                    case 'p': //pause
-                        mre.Reset();
-                        break;
-                    case 's': //start
-                        mre.Set();
-                        break;
-                    default:
-                        goAgain = false;
-                        break;
-                }
-                Thread.Sleep(100);
-            }
+            var task = Task.Delay(1000).ContinueWith(t => { mre.Set(); });
+            task.Wait();
+            Thread.Sleep(100000);
             cts.Dispose();
         }
 
@@ -91,21 +74,6 @@ namespace ThreadCancellation
                     Console.WriteLine("The wait operation was canceled.");
                     throw new OperationCanceledException(token);
                 }
-                else if (token.IsCancellationRequested) //Cancelled after WaitAny
-                {
-                    Console.WriteLine("I was canceled while running.");
-                    token.ThrowIfCancellationRequested();
-                }
-                else if (eventThatSignaledIndex == WaitHandle.WaitTimeout)
-                {
-                    Console.WriteLine("I timed out.");
-                    break;
-                }
-                else
-                {
-                    Console.Write("Working... ");
-                    Thread.SpinWait(5000);
-                }
             }
         }
     }
@@ -114,6 +82,9 @@ namespace ThreadCancellation
         static void Main(string[] args)
         {
             var tokenSource = new CancellationTokenSource();
+            Thread thread = new Thread(new ParameterizedThreadStart(CancelByPolling.NestedLoops));
+            thread.Start(tokenSource.Token);
+
             Task.Run(() => CancelByPolling.NestedLoops(tokenSource.Token), tokenSource.Token);
             Console.WriteLine("Press 'c' to cancel");
             if (Console.ReadKey(true).KeyChar == 'c')

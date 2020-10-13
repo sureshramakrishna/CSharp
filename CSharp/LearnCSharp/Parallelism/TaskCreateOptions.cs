@@ -11,13 +11,14 @@ namespace TaskCreateOptions
     {
         public static void DenyChildAttach()
         {
-            var parent = Task.Factory.StartNew(() => {
+            var parent = Task.Factory.StartNew(() =>
+            {
                 Console.WriteLine("Outer task executing.");
 
-                var child = Task.Factory.StartNew(() => {
-                    Console.WriteLine("Nested task starting.");
+                var child = Task.Factory.StartNew(() =>
+                {
                     Thread.SpinWait(500000);
-                    Console.WriteLine("Nested task completing.");
+                    Console.WriteLine("Nested task Completed.");
                 }, TaskCreationOptions.DenyChildAttach); //default option is DenyChildAttach
             });
 
@@ -26,13 +27,14 @@ namespace TaskCreateOptions
         }
         public static void AttachedToParent()
         {
-            var parent = Task.Factory.StartNew(() => {
+            var parent = Task.Factory.StartNew(() =>
+            {
                 Console.WriteLine("Outer task executing.");
 
-                var child = Task.Factory.StartNew(() => {
-                    Console.WriteLine("Nested task starting.");
+                var child = Task.Factory.StartNew(() =>
+                {
                     Thread.SpinWait(500000);
-                    Console.WriteLine("Nested task completing.");
+                    Console.WriteLine("Nested task Completed.");
                 }, TaskCreationOptions.AttachedToParent); //attaches child to parent
             });
 

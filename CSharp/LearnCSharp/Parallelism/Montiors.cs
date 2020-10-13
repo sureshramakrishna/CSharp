@@ -7,11 +7,9 @@ namespace Monitors
         static object _lock = new Object();
         static void Main()
         {
-            Thread threadOne = new Thread(Count);
-            threadOne.Start();
+            new Thread(Count).Start();
             Thread threadTwo = new Thread(Count);
             threadTwo.Start();
-
             threadTwo.Join();
         }
 

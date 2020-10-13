@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Parallel_For.Program</StartupObject>
+    <StartupObject>Semaphores.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -69,9 +69,11 @@
     <Compile Include="Collections\Arrays.cs" />
     <Compile Include="AsyncAwait.cs" />
     <Compile Include="AsynchronousProgrammingModule.cs" />
-    <Compile Include="Tasks\Parallel_For.cs" />
-    <Compile Include="Tasks\Parallel_ForEach.cs" />
-    <Compile Include="Tasks\Parallel_Invoke.cs" />
+    <Compile Include="Parallelism\Barriers.cs" />
+    <Compile Include="Parallelism\Parallel_For.cs" />
+    <Compile Include="Parallelism\Parallel_ForEach.cs" />
+    <Compile Include="Parallelism\Parallel_Invoke.cs" />
+    <Compile Include="Parallelism\TasksFactory.cs" />
     <Compile Include="WaitHandles\AutoResetEvents.cs" />
     <Compile Include="BinarySerialization.cs" />
     <Compile Include="Collections\BlockingCollection.cs" />
@@ -103,7 +105,6 @@
     <Compile Include="CustomEvents.cs" />
     <Compile Include="Delegates\Delegates.cs" />
     <Compile Include="EventBasedAsynchronousPattern.cs" />
-    <Compile Include="EventBasedAsynchronousPatterns.cs" />
     <Compile Include="EventBasedProgram.cs" />
     <Compile Include="WaitHandles\EventWaitHandles.cs" />
     <Compile Include="ExpressionTrees.cs" />
@@ -118,12 +119,12 @@
     <Compile Include="Delegates\FuncDelegates.cs" />
     <Compile Include="ImmutableCollections.cs" />
     <Compile Include="Indexer.cs" />
-    <Compile Include="InterLock.cs" />
+    <Compile Include="Parallelism\InterLock.cs" />
     <Compile Include="LinqQueries.cs" />
     <Compile Include="Collections\Lists.cs" />
     <Compile Include="WaitHandles\ManualResetEvents.cs" />
-    <Compile Include="Montiors.cs" />
-    <Compile Include="Mutex.cs" />
+    <Compile Include="Parallelism\Montiors.cs" />
+    <Compile Include="Parallelism\Mutex.cs" />
     <Compile Include="NumericFormatSpecifier.cs" />
     <Compile Include="OperatorOverloading.cs" />
     <Compile Include="Params.cs" />
@@ -135,18 +136,18 @@
     <Compile Include="RefVsOut.cs" />
     <Compile Include="RegularExpressions.cs" />
     <Compile Include="Sealed.cs" />
-    <Compile Include="Semaphore.cs" />
-    <Compile Include="SpinLocks.cs" />
-    <Compile Include="SpinWaits.cs" />
+    <Compile Include="Parallelism\Semaphore.cs" />
+    <Compile Include="Parallelism\SpinLocks.cs" />
+    <Compile Include="Parallelism\SpinWaits.cs" />
     <Compile Include="StackAndQueue.cs" />
     <Compile Include="Structs.cs" />
-    <Compile Include="SynchronizationAttributes.cs" />
+    <Compile Include="Parallelism\SynchronizationAttributes.cs" />
     <Compile Include="TaskBasedAsynchronousPattern.cs" />
-    <Compile Include="Tasks\TaskCreateOptions.cs" />
-    <Compile Include="Tasks\Tasks.cs" />
-    <Compile Include="ThreadCancellation.cs" />
-    <Compile Include="ThreadPool.cs" />
-    <Compile Include="Threads.cs" />
+    <Compile Include="Parallelism\TaskCreateOptions.cs" />
+    <Compile Include="Parallelism\Tasks.cs" />
+    <Compile Include="Parallelism\ThreadCancellation.cs" />
+    <Compile Include="Parallelism\ThreadPool.cs" />
+    <Compile Include="Parallelism\Threads.cs" />
     <Compile Include="Timers.cs" />
     <Compile Include="Tuples.cs" />
     <Compile Include="TypeParameters.cs" />

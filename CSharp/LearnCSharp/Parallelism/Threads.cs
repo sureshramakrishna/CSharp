@@ -57,14 +57,14 @@ namespace Threads
             instanceCaller.Suspend();
             Thread.Sleep(100);
             instanceCaller.Resume();
-            if(instanceCaller.ThreadState != ThreadState.Suspended)
+            if (instanceCaller.ThreadState != ThreadState.Suspended)
                 instanceCaller.Abort(); //abort this thread, meaning ThreadAbortException is thrown inside InstanceMethod. Throws error when thread is suspended
             instanceCaller.Join(); //waits until InstanceCaller is completed.
 
             Thread parameterizedThread = new Thread(new ParameterizedThreadStart(InstanceMethod));
             parameterizedThread.Start("Print Me!");
             parameterizedThread.Interrupt(); //When next time thread goes to sleep, wait or join state, thread throws ThreadInterruptedException exception.
-            SleepSwitch = true; 
+            SleepSwitch = true;
             while (parameterizedThread.ThreadState != ThreadState.Stopped) ;
 
         }

@@ -18,7 +18,6 @@ namespace CustomEvents
         {
             Counter c = new Counter(new Random().Next(10));
             c.ThresholdReached += c_ThresholdReached;
-
             Console.WriteLine("press 'a' key to increase total by one");
             while (Console.ReadKey(true).KeyChar == 'a')
                 c.Add(1);

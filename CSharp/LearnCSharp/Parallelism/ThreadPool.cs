@@ -22,7 +22,7 @@ namespace ThreadPool
             System.Threading.ThreadPool.GetAvailableThreads(out workerThreads, out ioThreads);
             System.Threading.ThreadPool.GetMaxThreads(out maxWorkerThreads, out maxIOThreads);
             System.Threading.ThreadPool.QueueUserWorkItem(ThreadProc);
-            System.Threading.ThreadPool.SetMaxThreads(100,100);
+            System.Threading.ThreadPool.SetMaxThreads(100, 100);
         }
     }
 }

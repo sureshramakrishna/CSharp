@@ -8,46 +8,27 @@ using System.Threading.Tasks;
 
 namespace TaskBasedAsynchronousPattern
 {
-    class Program
+    public class Program
     {
         public delegate bool Prime(int number);
         static void Main(string[] args)
         {
-            var task = ReadTask("Nothing");
+            Stream sr = new FileStream("C:\\File.txt", FileMode.Open);
+            var task = sr.ReadTask(new byte[int.MaxValue], 0, int.MaxValue, 0);
             task.Wait();
         }
-        public static Task<bool> ReadTask(object state)
+    }
+    public static class ExtensionMethods
+    {
+        public static Task<int> ReadTask(this Stream stream, byte[] buffer, int offset, int count, object state)
         {
-            var tcs = new TaskCompletionSource<bool>();
-            Prime prime = new Prime(IsPrime);
-            prime.BeginInvoke(2147483647, ar =>
+            var tcs = new TaskCompletionSource<int>();
+            stream.BeginRead(buffer, offset, count, ar =>
             {
-                try
-                {
-                    AsyncResult result = (AsyncResult)ar; 
-                    Prime caller = (Prime)result.AsyncDelegate;
-                    tcs.SetResult(caller.EndInvoke(result)); //delegate return value can be accessed using EndInvoke.
-                }
-                catch (Exception exc)
-                {
-                    tcs.SetException(exc);
-                }
+                try { tcs.SetResult(stream.EndRead(ar)); }
+                catch (Exception exc) { tcs.SetException(exc); }
             }, state);
             return tcs.Task;
-        }
-        public static bool IsPrime(int number)
-        {
-            if (number <= 1) return false;
-            if (number == 2) return true;
-            if (number % 2 == 0) return false;
-
-            var boundary = (int)Math.Floor(Math.Sqrt(number));
-
-            for (int i = 3; i <= boundary; i += 2)
-                if (number % i == 0)
-                    return false;
-
-            return true;
         }
     }
 }
