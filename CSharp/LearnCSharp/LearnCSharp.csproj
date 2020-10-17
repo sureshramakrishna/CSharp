@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract.cs" />
+    <Compile Include="Basics\Abstract.cs" />
     <Compile Include="Delegates\Actions.cs" />
     <Compile Include="Collections\ArrayLists.cs" />
     <Compile Include="Collections\Arrays.cs" />
@@ -97,7 +97,7 @@
     <Compile Include="Collections\SortedLists.cs" />
     <Compile Include="Collections\SortedSets.cs" />
     <Compile Include="Collections\StringDictionaries.cs" />
-    <Compile Include="Constructors.cs" />
+    <Compile Include="Basics\Constructors.cs" />
     <Compile Include="CoVarianca_ContraVariance\Contravariance.cs" />
     <Compile Include="WaitHandles\CountDownEvent.cs" />
     <Compile Include="CoVarianca_ContraVariance\Covariance.cs" />
@@ -108,7 +108,7 @@
     <Compile Include="EventBasedProgram.cs" />
     <Compile Include="WaitHandles\EventWaitHandles.cs" />
     <Compile Include="ExpressionTrees.cs" />
-    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="Basics\ExtensionMethods.cs" />
     <Compile Include="Files\BinaryReaderWriter.cs" />
     <Compile Include="Files\BufferedStreams.cs" />
     <Compile Include="Files\Directories.cs" />
@@ -118,7 +118,7 @@
     <Compile Include="Files\Streams.cs" />
     <Compile Include="Delegates\FuncDelegates.cs" />
     <Compile Include="ImmutableCollections.cs" />
-    <Compile Include="Indexer.cs" />
+    <Compile Include="Basics\Indexer.cs" />
     <Compile Include="Parallelism\InterLock.cs" />
     <Compile Include="LinqQueries.cs" />
     <Compile Include="Collections\Lists.cs" />
@@ -126,21 +126,21 @@
     <Compile Include="Parallelism\Montiors.cs" />
     <Compile Include="Parallelism\Mutex.cs" />
     <Compile Include="NumericFormatSpecifier.cs" />
-    <Compile Include="OperatorOverloading.cs" />
-    <Compile Include="Params.cs" />
-    <Compile Include="PartialClass.cs" />
+    <Compile Include="Basics\OperatorOverloading.cs" />
+    <Compile Include="Basics\Params.cs" />
+    <Compile Include="Basics\PartialClass.cs" />
     <Compile Include="Delegates\Predicates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringInterpolation.cs" />
     <Compile Include="Reflections.cs" />
-    <Compile Include="RefVsOut.cs" />
+    <Compile Include="Basics\RefVsOut.cs" />
     <Compile Include="RegularExpressions.cs" />
-    <Compile Include="Sealed.cs" />
+    <Compile Include="Basics\Sealed.cs" />
     <Compile Include="Parallelism\Semaphore.cs" />
     <Compile Include="Parallelism\SpinLocks.cs" />
     <Compile Include="Parallelism\SpinWaits.cs" />
-    <Compile Include="StackAndQueue.cs" />
-    <Compile Include="Structs.cs" />
+    <Compile Include="Basics\StackAndQueue.cs" />
+    <Compile Include="Basics\Structs.cs" />
     <Compile Include="Parallelism\SynchronizationAttributes.cs" />
     <Compile Include="TaskBasedAsynchronousPattern.cs" />
     <Compile Include="Parallelism\TaskCreateOptions.cs" />
@@ -149,14 +149,14 @@
     <Compile Include="Parallelism\ThreadPool.cs" />
     <Compile Include="Parallelism\Threads.cs" />
     <Compile Include="Timers.cs" />
-    <Compile Include="Tuples.cs" />
-    <Compile Include="TypeParameters.cs" />
-    <Compile Include="Unsafe.cs" />
-    <Compile Include="Virtual.cs" />
+    <Compile Include="Basics\Tuples.cs" />
+    <Compile Include="Basics\TypeParameters.cs" />
+    <Compile Include="Basics\Unsafe.cs" />
+    <Compile Include="Basics\Virtual.cs" />
     <Compile Include="WaitHandles\WaitHandles.cs" />
-    <Compile Include="WhenClause.cs" />
+    <Compile Include="Basics\WhenClause.cs" />
     <Compile Include="XMLSerializations.cs" />
-    <Compile Include="Yield.cs" />
+    <Compile Include="Basics\Yield.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
