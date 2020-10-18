@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Semaphores.Program</StartupObject>
+    <StartupObject>MemoryMappedFiles.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -69,6 +69,7 @@
     <Compile Include="Collections\Arrays.cs" />
     <Compile Include="AsyncAwait.cs" />
     <Compile Include="AsynchronousProgrammingModule.cs" />
+    <Compile Include="MemoryMappedFiles.cs" />
     <Compile Include="Parallelism\Barriers.cs" />
     <Compile Include="Parallelism\Parallel_For.cs" />
     <Compile Include="Parallelism\Parallel_ForEach.cs" />
