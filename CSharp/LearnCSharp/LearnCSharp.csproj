@@ -74,6 +74,7 @@
     <Compile Include="Parallelism\Parallel_For.cs" />
     <Compile Include="Parallelism\Parallel_ForEach.cs" />
     <Compile Include="Parallelism\Parallel_Invoke.cs" />
+    <Compile Include="Parallelism\ReaderWriterSample.cs" />
     <Compile Include="Parallelism\TasksFactory.cs" />
     <Compile Include="WaitHandles\AutoResetEvents.cs" />
     <Compile Include="BinarySerialization.cs" />
